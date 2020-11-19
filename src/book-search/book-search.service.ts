@@ -9,8 +9,7 @@ export async function getBooksByType(type: string) {
             }
         });
     } catch(exception) {
-        return [];
-
+        return undefined;
     }
 }
 

@@ -2,11 +2,13 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
-  'Helvetica Neue', Arial, sans-serif;
+    'Helvetica Neue', Arial, sans-serif;
 }
 
 h1,
@@ -68,7 +70,7 @@ main {
 .reading-list-container {
   padding: 0;
   width: 400px;
-  height: 100vh;
+  min-height: 100vh;
 
   h2 {
     position: relative;
@@ -90,6 +92,11 @@ main {
 
 .reading-list-content {
   padding: $spacing-xxs;
+  &__btn-close {
+    float: right;
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .empty {
@@ -109,22 +116,80 @@ form {
 .full-width {
   width: 100%;
 }
-.book {
-  border: 1px solid silver;
-  margin-top: .5rem;
-}
+  
 .book--container {
   display: flex;
   flex-flow: row nowrap;
-  justify-content:space-around;
+  justify-content: space-around;
   align-items: stretch;
 }
 
 .search-params {
   flex-grow: 3;
-
+  flex-basis: 0;
 }
 .sidebar {
+  display: flex;
   flex-grow: 1;
+  justify-content: center;
+}
 
+.book-card-container {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.book-card {
+  width: 280px;
+  padding: 5px;
+  border: 1px solid gray;
+  margin-top: 20px;
+  margin-right: 10px;
+  &__header {
+    font-size: 0.8rem;
+    vertical-align: text-top;
+    display: flex;
+    .book-card__cover {
+      display: inline-block;
+      border: 1px solid gray;
+      margin-right: 10px;
+      img {
+        width: 100px;
+        object-fit: cover;
+      }
+    }
+    .book-card__info {
+      .book-card__title {
+        width: 100%;
+        display: inline-block;
+        height: 32px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        overflow: hidden;
+      }
+      .book-card__author {
+        width: 100%;
+        margin-bottom: 5px;
+        display: inline-block;
+        height: 30px;
+        overflow: hidden;
+      }
+      .book-card__publisher {
+        width: 100%;
+        color: gray;
+        height: 30px;
+        overflow: hidden;
+        margin-bottom: 5px;
+      }
+      .btn-add-wishlist {
+        padding: 3px 5px;
+      }
+    }
+  }
+  &__description {
+    font-size: 0.5rem;
+  }
 }
