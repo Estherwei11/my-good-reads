@@ -15,11 +15,16 @@ const BookSearch = () => {
   async function requestBooks() {
     if (bookTypeToSearch) {
       setLoading(true);
+
       const allBooks = await getBooksByType(bookTypeToSearch);
 
-      if (allBooks) {
+      // check for possible undefined
+      if (allBooks && allBooks.items) {
         setAllAvailableBooks(allBooks.items);
+      } else {
+        setAllAvailableBooks([]);
       }
+
       setLoading(false);
     }
   }
