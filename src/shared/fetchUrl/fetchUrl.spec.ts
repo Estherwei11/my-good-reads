@@ -1,4 +1,6 @@
+import * as chai from 'chai';
 import { expect } from 'chai';
+import chaiAsPromised from 'chai-as-promised'
 import fetchUrl from './fetchUrl';
 import sinon from 'sinon';
 import assert from 'assert';
@@ -10,6 +12,7 @@ declare global {
         }
     }
 }
+chai.use(chaiAsPromised);
 describe('Testing FetchUrl - Wrapper over fetch', () => {
     const res = [{
         id: '1',
